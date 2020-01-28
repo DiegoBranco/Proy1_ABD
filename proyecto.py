@@ -3,7 +3,7 @@ import cx_Oracle
 import os
 os.system('cls||clear')
 
-contraseña=input("contraseña?")
+contraseña=input("contraseña:")
 
 connection = cx_Oracle.connect("tryndamere", contraseña, "localhost/orcl")
 cursor = connection.cursor()
