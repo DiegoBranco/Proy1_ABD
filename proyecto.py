@@ -30,6 +30,9 @@ from user_triggers""")
     input("Presione Enter para continuar")
 
 def op_tam_col():
+    cursor.execute("""select TABLE_NAME, COLUMN_NAME, DATA_LENGTH from user_tab_columns;""")
+    for tname, tname, cname, tam in cursor:
+        print("Tabla:", tname, "Columna:", cname, "Tamaño:", tam, "bytes")
     input("Presione Enter para continuar")
 
 def op_tam_reg():
