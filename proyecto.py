@@ -69,7 +69,6 @@ def op_block():
 
 
 
-print("hola mundo")
 op = ""
 while(op!="x"):
     print("""Seleccione:
