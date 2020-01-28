@@ -17,7 +17,7 @@ def op_tab_ind():
 
 def op_constraint():
     cursor.execute("""select constraint_name, constraint_type, table_name 
-from user_constraint""")
+from USER_CONSTRAINTS""")
     for cons, ct, tab in cursor:
         print("Restriccion:", cons, "Tipo:", ct, "Tabla:", tab)
     input("Presione Enter para continuar")
@@ -30,12 +30,19 @@ from user_triggers""")
     input("Presione Enter para continuar")
 
 def op_tam_col():
-    cursor.execute("""select TABLE_NAME, COLUMN_NAME, DATA_LENGTH from user_tab_columns;""")
-    for tname, tname, cname, tam in cursor:
+    cursor.execute("""select TABLE_NAME, COLUMN_NAME, DATA_LENGTH from user_tab_columns""")
+    for tname, cname, tam in cursor:
         print("Tabla:", tname, "Columna:", cname, "Tamaño:", tam, "bytes")
     input("Presione Enter para continuar")
 
 def op_tam_reg():
+    cursor.execute("""select TABLE_NAME from user_tables""")
+    tnames = cursor.fetchall()
+    for tname in tnames:
+        cursor.execute("""select SUM(DATA_LENGTH) from user_tab_columns where TABLE_NAME = :tname""", tname)
+        for tam in cursor:
+            print("Tabla:", tname, "Tamaño de registro:", tam, "bytes")
+    
     input("Presione Enter para continuar")
 
 def op_tam_tab():
@@ -54,6 +61,7 @@ where object_type = 'PROCEDURE' """)
         input("Presione Enter para continuar")
 
 def op_tam_db():
+    
     input("Presione Enter para continuar")
 
 def op_block():
