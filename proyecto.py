@@ -3,9 +3,10 @@ import cx_Oracle
 import os
 os.system('cls||clear')
 
-contraseña=input("contraseña:")
+contraseña= "SCOUTS_HONOR"
+# antes se usaba "input("contraseña:")" pero esto es innecesario"
 
-connection = cx_Oracle.connect("tryndamere", contraseña, "localhost/orcl")
+connection = cx_Oracle.connect("TEEMO", contraseña, "localhost/orcl")
 cursor = connection.cursor()
 
 def op_index():

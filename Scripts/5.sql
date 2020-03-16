@@ -3,7 +3,15 @@ ALTER SESSION SET nls_date_format = 'dd-mm-yyyy';
 EXECUTE agregar_servidor ('BR', 'Brazil', '13-09-2012', 'Portuguese', 'Sao Paulo, SP, Brazil', '104.160.152.3');
 EXECUTE agregar_servidor ('EUNE', 'Europe Nordic and East', '13-07-2010', 'Czech, English, Greek, Hungarian, Polish, Romanian', 'Frankfurt, Germany', '104.160.142.3');
 EXECUTE agregar_servidor ('LAN', 'Latin America North', '05-06-2013', 'Spanish', 'Miami, FL, United States', '104.160.136.3');
-EXECUTE agregar_servidor ('LAS', 'Latin America South', '05-06-2013', 'Spanish', 'Santiago, Chile', '104.160.137.3');
+EXECUTE agregar_servidor ('LAS', 'Latin America South', '05-06-2013', 'Spanish', 'Santiago, Chile', '104.160.69.3');
+--Inserciones
+EXECUTE agregar_servidor ('RUS', 'Russia', '05-06-2014', 'Russian', 'Moscow, Russia', '104.160.137.3');
+EXECUTE agregar_servidor ('BR2', 'Brazil 2', '05-07-2013', 'Portuguese', 'Brasilia, Brazil', '104.160.169.3');
+EXECUTE agregar_servidor ('SK', 'South Korea', '05-06-2014', 'Korean', 'Seoul, Korea', '104.160.137.3');
+EXECUTE agregar_servidor ('JAP', 'Japan', '05-06-2013', 'Anime', 'Tokyo, Japan', '104.160.137.3');
+EXECUTE agregar_servidor ('NVZ', 'Neo Venezuela', '05-06-2013', 'Maracuchian', 'Maracaibo, Venezuela', '104.160.137.3');
+
+--asumo numero fijo
 EXECUTE agregar_division ('SR', 'Sin Ranking', 'Aguila no caza mosca');
 EXECUTE agregar_division ('PROV', 'Provisional', 'Provisional');
 EXECUTE agregar_division ('HIV', 'Hierro 4', 'Hierro cuatro');
@@ -42,18 +50,40 @@ EXECUTE agregar_division ('CIV', 'Challenger 4', 'Challenger cuatro');
 EXECUTE agregar_division ('CIII', 'Challenger 3', 'Challenger tres');
 EXECUTE agregar_division ('CII', 'Challenger 2', 'Challenger dos');
 EXECUTE agregar_division ('CI', 'Challenger 1', 'Challenger uno');
+
 INSERT INTO USUARIO VALUES ('UID_00', 'LAN', 'fabianziffzer@gmail.com', '...', 'Fabian', 'Ziffzer', '+58 414 760 9562', '31-07-1996', 'M', 'DV', 0);
 INSERT INTO USUARIO VALUES ('UID_01', 'LAN', 'mercyospina@gmail.com', '...', 'Mercy', 'Ospina', '+58 414 760 9563', '30-07-1996', 'F', 'CI', 0);
-INSERT INTO USUARIO VALUES ('UID_00', 'LAS', 'fabianziffzer@gmail.com', '...', 'Fabian', 'Ziffzer', '+58 414 760 9562', '31-07-1996', 'M', 'PI', 0);
+INSERT INTO USUARIO VALUES ('UID_02', 'LAS', 'fabianziffzer@gmail.com', '...', 'Fabian', 'Ziffzer', '+58 414 760 9562', '31-07-1996', 'M', 'PI', 0);
+--Inserciones
+INSERT INTO USUARIO VALUES ('UID_03', 'LAS', 'fabianziffzer@gmail.com', '...', 'Fabian', 'Ziffzer', '+58 414 760 9562', '31-07-1996', 'M', 'PI', 0);
+INSERT INTO USUARIO VALUES ('UID_04', 'LAS', 'fabianziffzer@gmail.com', '...', 'Fabian', 'Ziffzer', '+58 414 760 9562', '31-07-1996', 'M', 'PI', 0);
+INSERT INTO USUARIO VALUES ('UID_05', 'LAS', 'fabianziffzer@gmail.com', '...', 'Fabian', 'Ziffzer', '+58 414 760 9562', '31-07-1996', 'M', 'PI', 0);
+INSERT INTO USUARIO VALUES ('UID_06', 'LAS', 'fabianziffzer@gmail.com', '...', 'Fabian', 'Ziffzer', '+58 414 760 9562', '31-07-1996', 'M', 'PI', 0);
+INSERT INTO USUARIO VALUES ('UID_07', 'LAS', 'fabianziffzer@gmail.com', '...', 'Fabian', 'Ziffzer', '+58 414 760 9562', '31-07-1996', 'M', 'PI', 0);
+
 INSERT INTO RIOTER VALUES ('UID_01', 'LAN', 'Riot Mercy4No1', '12-12-2014', '07-01-2024', 999999);
+INSERT INTO RIOTER VALUES ('UID_01', 'LAN', 'Riot Mercy4No1', '12-12-2014', '07-01-2024', 999999)
+INSERT INTO RIOTER VALUES ('UID_01', 'LAN', 'Riot Mercy4No1', '12-12-2014', '07-01-2024', 999999)
+INSERT INTO RIOTER VALUES ('UID_01', 'LAN', 'Riot Mercy4No1', '12-12-2014', '07-01-2024', 999999)
+INSERT INTO RIOTER VALUES ('UID_01', 'LAN', 'Riot Mercy4No1', '12-12-2014', '07-01-2024', 999999)
+
 INSERT INTO INVOCADOR VALUES ('UID_00', 'LAN', 'Alekxanderz', '12-11-2014');
-INSERT INTO INVOCADOR VALUES ('UID_00', 'LAS', 'Alekxanderz', '12-11-2014');
+INSERT INTO INVOCADOR VALUES ('UID_01', 'LAS', 'Piadosa', '12-11-2014');
+INSERT INTO INVOCADOR VALUES ('UID_00', 'LAN', 'Alekxanderz', '12-11-2014');
+INSERT INTO INVOCADOR VALUES ('UID_01', 'LAS', 'Piadosa', '12-11-2014');
+INSERT INTO INVOCADOR VALUES ('UID_00', 'LAN', 'Alekxanderz', '12-11-2014');
+INSERT INTO INVOCADOR VALUES ('UID_01', 'LAS', 'Piadosa', '12-11-2014');
+INSERT INTO INVOCADOR VALUES ('UID_00', 'LAN', 'Alekxanderz', '12-11-2014');
+INSERT INTO INVOCADOR VALUES ('UID_01', 'LAS', 'Piadosa', '12-11-2014');
+
+--asumo numero fijo
 INSERT INTO REGION VALUES ('Demacia', 'Monarquia Feudal', 'Mediano', 'Prohibida', 'Campos Fertiles');
 INSERT INTO REGION VALUES ('Freljord', 'Tribu Matrialcal', 'Bajo', 'Venerada', 'Tundra Helada');
 INSERT INTO REGION VALUES ('Noxus', 'Imperio Expansionista', 'Mediano', 'Alta, con fines belicos', 'Estepa Inhospita');
 INSERT INTO REGION VALUES ('Ionia', 'Provincias Regionales', 'Bajo', 'Alta', 'Magico (Variado)');
 INSERT INTO REGION VALUES ('Shadow Isles', 'Ninguno', 'Bajo', 'Alta, orientada al sufrimiento', 'Archipielago Maldito');
 INSERT INTO REGION VALUES ('Piltover/Zaun', 'Oligarquia', 'Alto', 'Alta, orientada al beneficio propio', 'Ciudad');
+
 INSERT INTO CARTA VALUES ('0000', 'Heroe', 'Lucian', 'Lucian', 'He visto morir a 4 aliados o mas o a Senna, Centinela de la Luz.', 'Demacia', 2, 3, 2, 'Campeon', 'Campeon', 'Ataque Rapido');
 INSERT INTO CARTA VALUES ('0001', 'Heroe', 'Fiora', 'Fiora', 'He matado a 2 enemigos', 'Demacia', 3, 3, 3, 'Campeon', 'Campeon', 'Aspirante');
 INSERT INTO CARTA VALUES ('0002', 'Hechizo', 'Chaleco de Cadenas', 'Chaleco de Cadenas', 'Otorga Aguante a un aliado', 'Demacia', 1, 0, 0, 'Comun', 'Otorga Aguante a un aliado', 'Rafaga');
@@ -64,6 +94,14 @@ INSERT INTO CARTA VALUES ('0006', 'Adepto', 'Poro Intrepido', 'Poro Intrepido', 
 INSERT INTO CARTA VALUES ('0007', 'Adepto', 'Chefs de Guerra', 'Chefs de Guerra', 'Apoyo: Concede +1/+1 al aliado al que apoye esta ronda', 'Demacia', 2, 2, 3, 'Comun', 'Apoyo: Concede +1/+1 al aliado al que apoye esta ronda', 'Apoyo');
 INSERT INTO CARTA VALUES ('0008', 'Adepto', 'Caballeria de la Vanguardia', 'Caballeria de la Vanguardia', 'Caballeria de la Vanguardia', 'Demacia', 5, 5, 5, 'Comun', 'Caballeria de la Vanguardia', 'Aguante');
 INSERT INTO CARTA VALUES ('0009', 'Adepto', 'Tianna Crownguard', 'Tianna Crownguard', 'Cuando se me invoca, se prepara el ataque', 'Demacia', 8, 7, 7, 'Epica', 'Cuando se me invoca, se prepara el ataque', 'Aguante');
+--Inserciones
+INSERT INTO CARTA VALUES ('0010', 'Adepto', 'Guaido', 'Presidente', 'No hace nada', 'Demacia', 8, 7, 7, 'Epica', 'No hace nada', 'Aguante');
+INSERT INTO CARTA VALUES ('0011', 'Heroe', 'Teemo', 'Mapache Scout', 'Cuando se me invoca, se prepara el ataque', 'Demacia', 8, 7, 7, 'Epica', 'Cuando se me invoca, se prepara el ataque', 'Aguante');
+INSERT INTO CARTA VALUES ('0012', 'Hechizo', 'Lanzamiento Nuclear', 'Nuclear Launch', 'Cuando se me invoca, se prepara el ataque', 'Piltover', 8, 7, 7, 'Epica', 'Cuando se me invoca, se prepara el ataque', 'Aguante');
+INSERT INTO CARTA VALUES ('0013', 'Adepto', 'La Guatona Candy', 'Gorda Guatona', 'Si hay una lisiada en el campo enemigo, exiliala, convoca un token de Terry', 'Noxus', 8, 7, 7, 'Epica', 'Cuando se me invoca, se prepara el ataque', 'Aguante');
+INSERT INTO CARTA VALUES ('0014', 'Heroe', 'Rengar', 'Tigre Furtivo', 'Cuando se me invoca, se prepara el ataque', 'Shadow Isles', 8, 7, 7, 'Epica', 'Cuando se me invoca, se prepara el ataque', 'Aguante');
+
+
 INSERT INTO MAZO VALUES ('00', 'UID_00', 'LAN', '0000', 'Con el Mazo Dando', 3);
 INSERT INTO MAZO VALUES ('00', 'UID_00', 'LAN', '0001', 'Con el Mazo Dando', 3);
 INSERT INTO MAZO VALUES ('00', 'UID_00', 'LAN', '0002', 'Con el Mazo Dando', 3);
@@ -74,6 +112,7 @@ INSERT INTO MAZO VALUES ('00', 'UID_00', 'LAN', '0006', 'Con el Mazo Dando', 3);
 INSERT INTO MAZO VALUES ('00', 'UID_00', 'LAN', '0007', 'Con el Mazo Dando', 3);
 INSERT INTO MAZO VALUES ('00', 'UID_00', 'LAN', '0008', 'Con el Mazo Dando', 3);
 INSERT INTO MAZO VALUES ('00', 'UID_00', 'LAN', '0009', 'Con el Mazo Dando', 3);
+
 INSERT INTO MAZO VALUES ('01', 'UID_01', 'LAN', '0000', 'Sin piedad', 3);
 INSERT INTO MAZO VALUES ('01', 'UID_01', 'LAN', '0001', 'Sin piedad', 3);
 INSERT INTO MAZO VALUES ('01', 'UID_01', 'LAN', '0002', 'Sin piedad', 3);
@@ -84,4 +123,22 @@ INSERT INTO MAZO VALUES ('01', 'UID_01', 'LAN', '0006', 'Sin piedad', 3);
 INSERT INTO MAZO VALUES ('01', 'UID_01', 'LAN', '0007', 'Sin piedad', 3);
 INSERT INTO MAZO VALUES ('01', 'UID_01', 'LAN', '0008', 'Sin piedad', 3);
 INSERT INTO MAZO VALUES ('01', 'UID_01', 'LAN', '0009', 'Sin piedad', 3);
+--Inserciones
+INSERT INTO MAZO VALUES ('02', 'UID_02', 'LAN', '0000', 'Castigo Eterno', 3);
+INSERT INTO MAZO VALUES ('02', 'UID_02', 'LAN', '0001', 'Castigo Eterno', 3);
+INSERT INTO MAZO VALUES ('02', 'UID_02', 'LAN', '0002', 'Castigo Eterno', 3);
+INSERT INTO MAZO VALUES ('02', 'UID_02', 'LAN', '0003', 'Castigo Eterno', 3);
+INSERT INTO MAZO VALUES ('02', 'UID_02', 'LAN', '0004', 'Castigo Eterno', 3);
+INSERT INTO MAZO VALUES ('02', 'UID_02', 'LAN', '0005', 'Castigo Eterno', 3);
+INSERT INTO MAZO VALUES ('02', 'UID_02', 'LAN', '0006', 'Castigo Eterno', 3);
+INSERT INTO MAZO VALUES ('02', 'UID_02', 'LAN', '0007', 'Castigo Eterno', 3);
+INSERT INTO MAZO VALUES ('02', 'UID_02', 'LAN', '0008', 'Castigo Eterno', 3);
+INSERT INTO MAZO VALUES ('02', 'UID_02', 'LAN', '0009', 'Castigo Eterno', 3);
+
 INSERT INTO BATALLA VALUES ('A00000', 'UID_00', '00', 'UID_01', '01', 'UID_00', 50);
+--Inserciones
+INSERT INTO BATALLA VALUES ('A00001', 'UID_00', '00', 'UID_01', '01', 'UID_00', 50);
+INSERT INTO BATALLA VALUES ('A00002', 'UID_00', '00', 'UID_01', '01', 'UID_00', 50);
+INSERT INTO BATALLA VALUES ('A00003', 'UID_00', '00', 'UID_01', '01', 'UID_00', 50);
+INSERT INTO BATALLA VALUES ('A00004', 'UID_00', '00', 'UID_01', '01', 'UID_00', 50);
+INSERT INTO BATALLA VALUES ('A00005', 'UID_00', '00', 'UID_01', '01', 'UID_00', 50);

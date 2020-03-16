@@ -11,6 +11,12 @@ ALTER TABLE SERVIDOR ADD CONSTRAINT id_servidor_PK PRIMARY KEY (id);
 ALTER TABLE SERVIDOR INITRANS 8;
 ALTER TABLE SERVIDOR MAXTRANS 20;
 
+CREATE UNIQUE INDEX SERVIDOR_id_nombre_ind ON SERVIDOR(
+    id,
+    nombre
+) TABLESPACE repositorio_indices
+COMPUTE STATISTICS;
+
 CREATE TABLE DIVISION(
     codigo VARCHAR2(5),
     nombre VARCHAR2(50),
@@ -19,6 +25,12 @@ CREATE TABLE DIVISION(
 CREATE UNIQUE INDEX IND_codigo_division_PK ON DIVISION(codigo) TABLESPACE repositorio_indices;
 CREATE INDEX IND_nombre_division ON DIVISION(nombre) TABLESPACE repositorio_indices;
 ALTER TABLE DIVISION ADD CONSTRAINT codigo_division_PK PRIMARY KEY (codigo);
+
+CREATE UNIQUE INDEX DIVISION_codigo_nombre_ind ON DIVISION(
+    codigo,
+    nombre
+) TABLESPACE repositorio_indices
+COMPUTE STATISTICS;
 
 CREATE TABLE USUARIO(
     id VARCHAR2(30),
@@ -37,6 +49,12 @@ CREATE UNIQUE INDEX IND_id_usuario_PK ON USUARIO(id, servidor) TABLESPACE reposi
 CREATE INDEX IND_nombre_usuario ON USUARIO(nombre) TABLESPACE repositorio_indices;
 ALTER TABLE USUARIO ADD CONSTRAINT id_servidor_usuario_PK PRIMARY KEY (id, servidor);
 
+CREATE UNIQUE INDEX USUARIO_id_nombre_ind ON USUARIO(
+    id,
+    nombre
+) TABLESPACE repositorio_indices
+COMPUTE STATISTICS;
+
 CREATE TABLE RIOTER(
     usuario VARCHAR2(30),
     servidor VARCHAR2(4),
@@ -50,6 +68,13 @@ ALTER TABLE RIOTER ADD CONSTRAINT usuario_servidor_rioter_PK PRIMARY KEY (usuari
 ALTER TABLE RIOTER INITRANS 8;
 ALTER TABLE RIOTER MAXTRANS 20;
 
+CREATE UNIQUE INDEX RIOTER_id_nombre_ind ON RIOTER(
+    usuario,
+    nombre_invocador
+) TABLESPACE repositorio_indices
+COMPUTE STATISTICS;
+
+
 CREATE TABLE INVOCADOR(
     usuario VARCHAR2(30),
     servidor VARCHAR2(4),
@@ -61,6 +86,12 @@ CREATE INDEX IND_nombre_invocador_invocador ON INVOCADOR(nombre_invocador) TABLE
 ALTER TABLE INVOCADOR ADD CONSTRAINT usuario_servidor_invocador_PK PRIMARY KEY (usuario, servidor);
 ALTER TABLE INVOCADOR INITRANS 8;
 ALTER TABLE INVOCADOR MAXTRANS 20;
+
+CREATE UNIQUE INDEX INVOCADOR_id_nombre_ind ON INVOCADOR(
+    usuario,
+    nombre_invocador
+) TABLESPACE repositorio_indices
+COMPUTE STATISTICS;
 
 CREATE TABLE REGION(
     nombre VARCHAR2(30),
@@ -91,6 +122,12 @@ CREATE UNIQUE INDEX IND_id_carta_PK ON CARTA(id) TABLESPACE repositorio_indices;
 CREATE INDEX IND_nombre_costo_carta ON CARTA(nombre, costo) TABLESPACE repositorio_indices;
 ALTER TABLE CARTA ADD CONSTRAINT id_carta_PK PRIMARY KEY (id);
 
+CREATE UNIQUE INDEX SERVIDOR_id_nombre_ind ON SERVIDOR(
+    id,
+    nombre
+) TABLESPACE repositorio_indices
+COMPUTE STATISTICS;
+
 CREATE TABLE MAZO(
     id VARCHAR2(30),
     usuario VARCHAR2(30),
@@ -101,6 +138,12 @@ CREATE TABLE MAZO(
 )TABLESPACE repositorio_tablas;
 CREATE UNIQUE INDEX IND_id_usuario_carta_mazo_PK ON MAZO(id, usuario, carta) TABLESPACE repositorio_indices;
 ALTER TABLE MAZO ADD CONSTRAINT id_usuario_carta_mazo_PK PRIMARY KEY (id, usuario, carta);
+
+CREATE UNIQUE INDEX SERVIDOR_id_nombre_indON SERVIDOR(
+    id,
+    nombre
+) TABLESPACE repositorio_indices
+COMPUTE STATISTICS;
 
 CREATE TABLE BATALLA(
     id VARCHAR2(30),
@@ -113,3 +156,10 @@ CREATE TABLE BATALLA(
 )TABLESPACE repositorio_tablas;
 CREATE UNIQUE INDEX IND_id_batalla_PK ON BATALLA(id) TABLESPACE repositorio_indices;
 ALTER TABLE BATALLA ADD CONSTRAINT id_batalla_PK PRIMARY KEY (id);
+
+CREATE UNIQUE INDEX SERVIDOR_id_nombre_ind ON SERVIDOR(
+    id,
+    usuario1,
+    usuario2
+) TABLESPACE repositorio_indices
+COMPUTE STATISTICS;

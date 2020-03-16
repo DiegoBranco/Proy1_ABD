@@ -7,10 +7,11 @@ DROP TABLESPACE repositorio_indices INCLUDING CONTENTS AND DATAFILES;
 CREATE TABLESPACE repositorio_tablas DATAFILE 'df_tablas.DBF' SIZE 50M;
 CREATE TABLESPACE repositorio_indices DATAFILE 'df_indices.DBF' SIZE 50M;
 
---Instrucciones para eliminar al usuario TRYNDAMERE y todo su contenido
+--Instrucciones para eliminar a los usuarios TRYNDAMERE y TEEMO con todo su contenido
 --usar si tienen algun error al eliminar el usuario:
 	--alter session set “_oracle_script“=true;
 DROP USER TRYNDAMERE CASCADE;
+DROP USER TEEMO CASCADE;
 
 --Instrucciones para crear al usuario TRYNDAMERE y otorgarle los permisos necesarios
 --ejecutar si encuentra un problema al crear el usuario: alter session set "_ORACLE_SCRIPT"=true;  
@@ -18,6 +19,12 @@ CREATE USER TRYNDAMERE IDENTIFIED BY a1234; --contraseña de su preferencia--
 GRANT CREATE SESSION, CREATE TABLE, ALTER SESSION, CREATE TRIGGER, CREATE PROCEDURE to TRYNDAMERE;
 ALTER USER TRYNDAMERE QUOTA UNLIMITED ON repositorio_tablas;
 ALTER USER TRYNDAMERE QUOTA UNLIMITED ON repositorio_indices;
+
+--Creamos un usuario distinto para la app, para prevenir cualquier posibilidad de inyeccion SQL.
+--En honor a su inofensividad e inocencia, lo llamaremos Teemo <3
+
+CREATE USER TEEMO IDENTIFIED BY SCOUTS_HONOR;
+GRANT CREATE SESSION, SELECT TO TEEMO;
 
 --Instrucciones para conectarse como el usuario creado e importar los scripts necesarios para crear la base de datos
 CONNECT TRYNDAMERE/--contraseña de su preferencia--;
