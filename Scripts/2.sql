@@ -122,7 +122,7 @@ CREATE UNIQUE INDEX IND_id_carta_PK ON CARTA(id) TABLESPACE repositorio_indices;
 CREATE INDEX IND_nombre_costo_carta ON CARTA(nombre, costo) TABLESPACE repositorio_indices;
 ALTER TABLE CARTA ADD CONSTRAINT id_carta_PK PRIMARY KEY (id);
 
-CREATE UNIQUE INDEX SERVIDOR_id_nombre_ind ON SERVIDOR(
+CREATE UNIQUE INDEX CARTA_id_nombre_ind ON CARTA(
     id,
     nombre
 ) TABLESPACE repositorio_indices
@@ -139,7 +139,11 @@ CREATE TABLE MAZO(
 CREATE UNIQUE INDEX IND_id_usuario_carta_mazo_PK ON MAZO(id, usuario, carta) TABLESPACE repositorio_indices;
 ALTER TABLE MAZO ADD CONSTRAINT id_usuario_carta_mazo_PK PRIMARY KEY (id, usuario, carta);
 
+<<<<<<< HEAD
 CREATE UNIQUE INDEX SERVIDOR_id_nombre_ind ON SERVIDOR(
+=======
+CREATE UNIQUE INDEX MAZO_id_nombre_indON MAZO(
+>>>>>>> 65f258d7a0e865eabe4bd09d245bad56d34b1860
     id,
     nombre
 ) TABLESPACE repositorio_indices
@@ -157,7 +161,7 @@ CREATE TABLE BATALLA(
 CREATE UNIQUE INDEX IND_id_batalla_PK ON BATALLA(id) TABLESPACE repositorio_indices;
 ALTER TABLE BATALLA ADD CONSTRAINT id_batalla_PK PRIMARY KEY (id);
 
-CREATE UNIQUE INDEX SERVIDOR_id_nombre_ind ON SERVIDOR(
+CREATE UNIQUE INDEX BATALLA_id_nombre_ind ON BATALLA(
     id,
     usuario1,
     usuario2
