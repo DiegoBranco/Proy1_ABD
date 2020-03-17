@@ -139,7 +139,7 @@ CREATE TABLE MAZO(
 CREATE UNIQUE INDEX IND_id_usuario_carta_mazo_PK ON MAZO(id, usuario, carta) TABLESPACE repositorio_indices;
 ALTER TABLE MAZO ADD CONSTRAINT id_usuario_carta_mazo_PK PRIMARY KEY (id, usuario, carta);
 
-CREATE UNIQUE INDEX SERVIDOR_id_nombre_indON SERVIDOR(
+CREATE UNIQUE INDEX SERVIDOR_id_nombre_ind ON SERVIDOR(
     id,
     nombre
 ) TABLESPACE repositorio_indices

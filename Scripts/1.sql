@@ -24,7 +24,7 @@ ALTER USER TRYNDAMERE QUOTA UNLIMITED ON repositorio_indices;
 --En honor a su inofensividad e inocencia, lo llamaremos Teemo <3
 
 CREATE USER TEEMO IDENTIFIED BY SCOUTS_HONOR;
-GRANT CREATE SESSION, SELECT TO TEEMO;
+GRANT CREATE SESSION TO TEEMO;
 
 --Instrucciones para conectarse como el usuario creado e importar los scripts necesarios para crear la base de datos
 CONNECT TRYNDAMERE/--contraseña de su preferencia--;
