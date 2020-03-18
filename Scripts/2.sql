@@ -26,6 +26,8 @@ CREATE UNIQUE INDEX IND_codigo_division_PK ON DIVISION(codigo) TABLESPACE reposi
 CREATE INDEX IND_nombre_division ON DIVISION(nombre) TABLESPACE repositorio_indices;
 ALTER TABLE DIVISION ADD CONSTRAINT codigo_division_PK PRIMARY KEY (codigo);
 
+
+
 CREATE UNIQUE INDEX DIVISION_codigo_nombre_ind ON DIVISION(
     codigo,
     nombre
@@ -139,7 +141,7 @@ CREATE TABLE MAZO(
 CREATE UNIQUE INDEX IND_id_usuario_carta_mazo_PK ON MAZO(id, usuario, carta) TABLESPACE repositorio_indices;
 ALTER TABLE MAZO ADD CONSTRAINT id_usuario_carta_mazo_PK PRIMARY KEY (id, usuario, carta);
 
-CREATE UNIQUE INDEX MAZO_id_nombre_indON MAZO(
+CREATE UNIQUE INDEX MAZO_id_nombre_ind ON MAZO(
     id,
     nombre
 ) TABLESPACE repositorio_indices
