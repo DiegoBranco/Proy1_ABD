@@ -1,3 +1,5 @@
+--Permisos de Select para que Teemo haga su trabajo.
+
 GRANT SELECT  ON SERVIDOR TO TEEMO;
 GRANT SELECT  ON DIVISION TO TEEMO;
 GRANT SELECT  ON USUARIO TO TEEMO;
