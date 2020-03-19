@@ -12,7 +12,7 @@ cursor = connection.cursor()
 
 def op_index():
     cursor.execute("""select index_name, column_name, table_name
-    from user_ind_columns""")
+    from ALL_IND_COLUMNS WHERE INDEX OWNER = 'TRYNDAMERE' """)
     for ind, col, tab in cursor:
         print("Indice:", ind, "Columna:", col, "Tabla:", tab)
     input("Presione Enter para continuar")
@@ -104,7 +104,7 @@ def op_block():
             print("Tabla:", tname[0], "Factor de bloqueo:",  8192//tam[0])
     
     cursor.execute("""select index_name,  column_length+8
-    from user_ind_columns""")
+    from ALL_IND_COLUMNS WHERE INDEX_OWNER = 'TRYNDAMERE'""")
     for ind, tam in cursor:
         print("Indice:", ind, "Factor de bloqueo:",  8192//tam)
     input("Presione Enter para continuar")
