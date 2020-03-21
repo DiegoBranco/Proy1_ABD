@@ -12,7 +12,7 @@ cursor = connection.cursor()
 
 def op_index():
     cursor.execute("""select index_name, column_name, table_name
-    from ALL_IND_COLUMNS WHERE INDEX OWNER = 'TRYNDAMERE' """)
+    from ALL_IND_COLUMNS WHERE INDEX_OWNER = 'TRYNDAMERE' """)
     for ind, col, tab in cursor:
         print("Indice:", ind, "Columna:", col, "Tabla:", tab)
     input("Presione Enter para continuar")
@@ -20,11 +20,11 @@ def op_index():
 
 def op_tab_ind():
     cursor.execute("""select table_name
-    from user_tables""")
+    from all_tables where owner = 'TRYNDAMERE'""")
     tnames = cursor.fetchall()
     for tname in tnames:
         cursor.execute("""select count(index_name)
-        from user_indexes
+        from all_indexes
         where TABLE_NAME = :tname""", tname)
         for tam in cursor:
             print("Tabla:", tname[0], "Numero de indices asociados:", tam[0])
@@ -33,7 +33,7 @@ def op_tab_ind():
 
 def op_constraint():
     cursor.execute("""select constraint_name, constraint_type, table_name 
-    from USER_CONSTRAINTS""")
+    from ALL_CONSTRAINTS where owner = 'TRYNDAMERE' """)
     for cons, ct, tab in cursor:
         print("Restriccion:", cons, "Tipo:", ct, "Tabla:", tab)
     input("Presione Enter para continuar")
@@ -41,7 +41,7 @@ def op_constraint():
 
 def op_trigger():
     cursor.execute("""select trigger_name, trigger_type, status, table_name
-    from user_triggers""")
+    from all_triggers where owner = 'TRYNDAMERE' """)
     for tname, trt, stat, tab in cursor:
         print("Trigger:", tname, "Tipo:", trt, "Status:", stat, "Tabla:", tab)
     input("Presione Enter para continuar")
@@ -49,7 +49,7 @@ def op_trigger():
 
 def op_tam_col():
     cursor.execute("""select TABLE_NAME, COLUMN_NAME, DATA_LENGTH 
-    from user_tab_columns""")
+    from all_tab_columns where owner = 'TRYNDAMERE' """)
     for tname, cname, tam in cursor:
         print("Tabla:", tname, "Columna:", cname, "Tamaño:", tam, "bytes")
     input("Presione Enter para continuar")
@@ -57,11 +57,11 @@ def op_tam_col():
 
 def op_tam_reg():
     cursor.execute("""select TABLE_NAME
-    from user_tables""")
+    from all_tables where owner = 'TRYNDAMERE' """)
     tnames = cursor.fetchall()
     for tname in tnames:
         cursor.execute("""select SUM(DATA_LENGTH)
-        from user_tab_columns 
+        from all_tab_columns 
         where TABLE_NAME = :tname""", tname)
         for tam in cursor:
             print("Tabla:", tname[0], "Tamaño de registro:", tam[0]+1, "bytes")
@@ -71,7 +71,7 @@ def op_tam_reg():
 
 def op_tam_tab():
     cursor.execute("""select table_name, blocks
-    from user_tables""")
+    from all_tables where owner = 'TRYNDAMERE' """)
     for tname, block in cursor:
         print("Tabla:", tname, "Tamaño:", block, "bloques usados")
     input("Presione Enter para continuar")
@@ -79,26 +79,26 @@ def op_tam_tab():
 
 def op_procedures():
     cursor.execute("""select object_name 
-    from user_procedures
-    where object_type like 'PROCEDURE'""")
+    from dba_procedures
+    where owner = 'TRYNDAMERE' """)
     for oname in cursor:
         print("Procedimiento:", oname[0] )
     input("Presione Enter para continuar")
     os.system('cls||clear')
 
 def op_tam_db():
-    cursor.execute("""select sum(bytes)/1024/1024 from user_extents """)
+    cursor.execute("""select sum(bytes)/1024/1024 from dba_segments where owner = 'TRYNDAMERE'""")
     for tam in cursor:
-        print("Ttamaño total de la base de datos:", tam[0],"MB" )
+        print("Tamaño total de la base de datos:", tam[0],"MB" )
     input("Presione Enter para continuar")
     os.system('cls||clear')
 
 def op_block():
-    cursor.execute("""select TABLE_NAME from user_tables""")
+    cursor.execute("""select TABLE_NAME from all_tables where owner = 'TRYNDAMERE'""")
     tnames = cursor.fetchall()
     for tname in tnames:
         cursor.execute("""select SUM(DATA_LENGTH)+1
-        from user_tab_columns 
+        from all_tab_columns 
         where TABLE_NAME = :tname""", tname)
         for tam in cursor:
             print("Tabla:", tname[0], "Factor de bloqueo:",  8192//tam[0])

@@ -27,14 +27,11 @@ ALTER USER tryndamere QUOTA UNLIMITED ON repositorio_indices;
 
 CREATE USER teemo IDENTIFIED BY SCOUTS_HONOR;
 GRANT CREATE SESSION TO teemo;
-GRANT SELECT  ON user_ind_columns TO teemo;
-GRANT SELECT  ON user_tables TO teemo;
-GRANT SELECT  ON USER_CONSTRAINTS TO teemo;
-GRANT SELECT  ON user_triggers TO teemo;
-GRANT SELECT  ON user_tables TO teemo;
-GRANT SELECT  ON user_procedures TO teemo;
-GRANT SELECT  ON user_extents TO teemo;
-GRANT SELECT  ON user_tables TO teemo;
+
+GRANT SELECT  ON dba_procedures TO teemo;
+GRANT SELECT  ON dba_segments TO TEEMO;  
+GRANT SELECT  ON dba_data_files TO teemo;
+GRANT SELECT  ON dba_free_space TO teemo;
 
 --Instrucciones para conectarse como el usuario creado e importar los scripts necesarios para crear la base de datos
 CONNECT tryndamere/a1234--contraseña de su preferencia--;
