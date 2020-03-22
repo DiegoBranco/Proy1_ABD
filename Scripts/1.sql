@@ -33,6 +33,15 @@ GRANT SELECT  ON dba_segments TO TEEMO;
 GRANT SELECT  ON dba_data_files TO teemo;
 GRANT SELECT  ON dba_free_space TO teemo;
 
+-- configuramos la bd a modo archive log
+alter system set db_recovery_file_dest_size = 500M;
+shutdown immediate;
+startup mount;
+alter database archivelog;
+alter database open;
+
+
+
 --Instrucciones para conectarse como el usuario creado e importar los scripts necesarios para crear la base de datos
 CONNECT tryndamere/a1234--contraseña de su preferencia--;
 --Ruta de los scripts en caso de que no desee importarlos manualmente.
